@@ -27,6 +27,7 @@
 
 # Ignore some folders
 1-numpy/notebooks/
+2-pandas/notebooks/
 
 ### VirtualEnv ###
 # Virtualenv
