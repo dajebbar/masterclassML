@@ -25,7 +25,8 @@
 # Ignore code-workspaces
 *.code-workspace
 
-
+# Ignore some folders
+1-numpy/notebooks/
 
 ### VirtualEnv ###
 # Virtualenv
