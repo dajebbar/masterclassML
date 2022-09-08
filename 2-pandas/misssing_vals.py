@@ -14,7 +14,8 @@ def main():
     # print(movies.shape)
     # print(movies.isnull())
     # print(movies.isnull().sum())
-    print(movies.notnull())
+    # print(movies.notnull())
+    print(movies[(movies['pre_movie_score'].isnull()) & (movies['first_name'].notnull())])
 
 if __name__=='__main__':
     main()
