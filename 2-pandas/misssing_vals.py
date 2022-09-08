@@ -34,7 +34,14 @@ def main():
     
     # fillna
     # print(movies['pre_movie_score'].fillna(0))
-    print(movies['pre_movie_score'].fillna(movies['pre_movie_score'].median()))
+    # print(movies['pre_movie_score'].fillna(movies['pre_movie_score'].median()))
+    
+    # Interpolation
+    airline_tix = {'first':100,'business':np.nan,'economy-plus':50,'economy':30}
+    s = pd.Series(airline_tix)
+    print(s)
+    print()
+    print(s.interpolate())
     
     
     
