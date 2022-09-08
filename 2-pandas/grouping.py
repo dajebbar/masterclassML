@@ -21,7 +21,10 @@ def main():
     # print(year_cyl.xs(key=4, level='cylinders'))
     
     # filtering before grouping
-    print(df[df['cylinders'].isin([6, 8])].groupby(['model_year', 'cylinders']).mean())
+    # print(df[df['cylinders'].isin([6, 8])].groupby(['model_year', 'cylinders']).mean())
+    
+    # sorting index
+    print(year_cyl.sort_index(level='model_year', ascending=False))
     
     
     
