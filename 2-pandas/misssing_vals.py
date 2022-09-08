@@ -15,7 +15,14 @@ def main():
     # print(movies.isnull())
     # print(movies.isnull().sum())
     # print(movies.notnull())
-    print(movies[(movies['pre_movie_score'].isnull()) & (movies['first_name'].notnull())])
+    # print(movies[(movies['pre_movie_score'].isnull()) & (movies['first_name'].notnull())])
+    
+    # print(movies.dropna())
+    # print(movies.dropna(thresh=1))
+    # print(movies.dropna(thresh=4))
+    print(movies.dropna(thresh=5))
+    
+    
 
 if __name__=='__main__':
     main()
