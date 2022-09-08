@@ -24,8 +24,12 @@ def main():
     # print(df[df['cylinders'].isin([6, 8])].groupby(['model_year', 'cylinders']).mean())
     
     # sorting index
-    print(year_cyl.sort_index(level='model_year', ascending=False))
+    # print(year_cyl.sort_index(level='model_year', ascending=False))
     
+    # .agg()
+    # print(year_cyl.agg(['mean', 'std']))
+    # print(year_cyl.agg(['mean', 'std'])['mpg'])
+    print(df.agg({'mpg':['mean', 'max'], 'weight': ['std', 'mean']}))
     
     
     
