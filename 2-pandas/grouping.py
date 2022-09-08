@@ -18,7 +18,10 @@ def main():
     
     # Cross section
     # print(year_cyl.xs(key=78, level='model_year'))
-    print(year_cyl.xs(key=4, level='cylinders'))
+    # print(year_cyl.xs(key=4, level='cylinders'))
+    
+    # filtering before grouping
+    print(df[df['cylinders'].isin([6, 8])].groupby(['model_year', 'cylinders']).mean())
     
     
     
