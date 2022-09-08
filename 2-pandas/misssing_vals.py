@@ -12,8 +12,9 @@ def main():
     movies = pd.read_csv('nb/Datasets/movie_scores.csv')
     # print(movies)
     # print(movies.shape)
-    print(movies.isnull())
-    print(movies.isnull().sum())
+    # print(movies.isnull())
+    # print(movies.isnull().sum())
+    print(movies.notnull())
 
 if __name__=='__main__':
     main()
