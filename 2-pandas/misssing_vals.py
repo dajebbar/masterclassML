@@ -30,7 +30,12 @@ def main():
     # print(movies.dropna(thresh=5))
     
     # dropna subset
-    print(movies.dropna(subset=['last_name', 'pre_movie_score']))
+    # print(movies.dropna(subset=['last_name', 'pre_movie_score']))
+    
+    # fillna
+    # print(movies['pre_movie_score'].fillna(0))
+    print(movies['pre_movie_score'].fillna(movies['pre_movie_score'].median()))
+    
     
     
 
