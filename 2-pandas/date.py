@@ -21,5 +21,13 @@ print()
 # print(s_date[0].month)
 
 euro_date = '11-9-2022'
-print(pd.to_datetime(euro_date))
-print(pd.to_datetime(euro_date, dayfirst=True))
+# print(pd.to_datetime(euro_date))
+# print(pd.to_datetime(euro_date, dayfirst=True))
+
+df = pd.read_csv('notebooks/Datasets/RetailSales_BeerWineLiquor.csv')
+# print(df['DATE'].dtype)
+df['DATE'] = pd.to_datetime(df['DATE'])
+# print(df.head())
+df.set_index('DATE', inplace=True)
+df_q = df.resample(rule='BQ').mean()
+print(df_q)
