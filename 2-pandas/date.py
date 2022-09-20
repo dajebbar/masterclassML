@@ -18,4 +18,8 @@ s = pd.Series(['25 Nov 2021', '10-04-1991', None])
 s_date = pd.to_datetime(s)
 print()
 # print(s_date)
-print(s_date[0].month)
+# print(s_date[0].month)
+
+euro_date = '11-9-2022'
+print(pd.to_datetime(euro_date))
+print(pd.to_datetime(euro_date, dayfirst=True))
