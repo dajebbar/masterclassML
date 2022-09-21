@@ -46,6 +46,6 @@ ax[0].set(title='X²', xlabel='X', ylabel='Y')
 ax[1].set(title='X⁴', xlabel='X', ylabel='Y')
 
 plt.show()
-# fig.savefig('../graphs/ab_xy.png', bbox_inches='tight')
+fig.savefig('../graphs/ab_xy.png', bbox_inches='tight')
 # fig.savefig('../graphs/a_b.png', bbox_inches='tight')
 # plt.savefig('../graphs/plot.png')
