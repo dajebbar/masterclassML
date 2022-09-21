@@ -1,3 +1,4 @@
+from tkinter import font
 from turtle import title
 import pandas as pd
 import numpy as np
@@ -44,8 +45,9 @@ ax[1].plot(a,b)
 
 ax[0].set(title='X²', xlabel='X', ylabel='Y')
 ax[1].set(title='X⁴', xlabel='X', ylabel='Y')
-
+fig.subplots_adjust(wspace=.4, hspace=.4)
+fig.suptitle('Functions curve', font='16')
 plt.show()
-fig.savefig('../graphs/ab_xy.png', bbox_inches='tight')
+# fig.savefig('../graphs/ab_xy.png', bbox_inches='tight')
 # fig.savefig('../graphs/a_b.png', bbox_inches='tight')
 # plt.savefig('../graphs/plot.png')
