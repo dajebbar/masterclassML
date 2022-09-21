@@ -1,7 +1,8 @@
+from turtle import title
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('ggplot')
+plt.style.use('fivethirtyeight')
 
 x = np.arange(10)
 y = x **2 +3*x - 5
@@ -27,14 +28,24 @@ plt.ylim(0, 11000)
 plt.title('X⁴')
 '''
 
-fig = plt.figure(figsize=(3, 2), dpi=150)
+# fig = plt.figure(figsize=(3, 2), dpi=150)
 
-axe1 = fig.add_axes([0, 0, 1, 1])
-axe1.plot(a, b)
+# axe1 = fig.add_axes([0, 0, 1, 1])
+# axe1.plot(a, b)
 
 # axe2 = fig.add_axes([0, .7, .35, .35])
 # axe2.plot(x, y)
 
+fig, ax = plt.subplots(1, 2)
+fig.set_size_inches(10, 5)
+
+ax[0].plot(x,y)
+ax[1].plot(a,b)
+
+ax[0].set(title='X²', xlabel='X', ylabel='Y')
+ax[1].set(title='X⁴', xlabel='X', ylabel='Y')
+
 plt.show()
-fig.savefig('../graphs/a_b.png', bbox_inches='tight')
+# fig.savefig('../graphs/ab_xy.png', bbox_inches='tight')
+# fig.savefig('../graphs/a_b.png', bbox_inches='tight')
 # plt.savefig('../graphs/plot.png')
