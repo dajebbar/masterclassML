@@ -27,13 +27,14 @@ plt.ylim(0, 11000)
 plt.title('X⁴')
 '''
 
-fig = plt.figure()
+fig = plt.figure(figsize=(3, 2), dpi=150)
 
 axe1 = fig.add_axes([0, 0, 1, 1])
 axe1.plot(a, b)
 
-axe2 = fig.add_axes([0, .7, .35, .35])
-axe2.plot(x, y)
+# axe2 = fig.add_axes([0, .7, .35, .35])
+# axe2.plot(x, y)
 
 plt.show()
+# plt.savefig('../graphs/a_b.png', bbox_inches='tight')
 # plt.savefig('../graphs/plot.png')
