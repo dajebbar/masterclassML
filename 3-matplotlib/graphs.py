@@ -36,5 +36,5 @@ axe1.plot(a, b)
 # axe2.plot(x, y)
 
 plt.show()
-# plt.savefig('../graphs/a_b.png', bbox_inches='tight')
+fig.savefig('../graphs/a_b.png', bbox_inches='tight')
 # plt.savefig('../graphs/plot.png')
