@@ -28,7 +28,12 @@ plt.title('X⁴')
 '''
 
 fig = plt.figure()
-axes = fig.add_axes([0, 0, 1, 1])
-axes.plot(a, b)
+
+axe1 = fig.add_axes([0, 0, 1, 1])
+axe1.plot(a, b)
+
+axe2 = fig.add_axes([0, .7, .35, .35])
+axe2.plot(x, y)
+
 plt.show()
 # plt.savefig('../graphs/plot.png')
