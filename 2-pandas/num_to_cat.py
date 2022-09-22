@@ -12,5 +12,7 @@ df = pd.read_csv(fp)
 
 df['age_bin'] = pd.cut(df['Age'], bins=[9, 13, 20, 65, 100], labels=['child', 'taneeger', 'adult', 'senior'])
 # print(df['age_bin'].head())
+dc = ['ten', 'twen', 'thirt', 'forth', 'five', 'six', 'seven', 'eigh', 'nine']
+df['decade'] = pd.cut(df['Age'], bins=[i for i in range(9, 100, 10)], labels=[i+'ties' for i in dc])
 print(df.sample(10))
 
