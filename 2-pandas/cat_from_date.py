@@ -25,9 +25,28 @@ df['doa'] = pd.to_datetime(df['doa'])
 year = lambda yr : datetime.datetime(yr, month=1, day=1)
 print_date = lambda dt: dt.strftime('%d, %b %Y')
 
-print(print_date(year(1852)))
+# cut dates on categories
+# 1975 - 1998 - 2010
+
+df['year_cat'] = (
+    pd.cut(df.doa,
+            bins=[year(1968),
+                    year(1975), 
+                    year(1998), 
+                    year(2010),
+                    year(2021)], 
+            labels=[f'law_{i+1}' for i in range(4)]
+        )
+            
+
+)
+
+
+# print(df.doa.max().day)
+# print(print_date(df.doa.min()))
+# print(print_date(df.doa.max()))
 # print(df['doa'].dt.year.unique())
 # print(df['doa'].dt.year.unique().size)
 # print(df['doa'].dt.year.sample(10))
 # print(df.info())
-# print(df.head())
+print(df.head())
