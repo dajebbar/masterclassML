@@ -18,5 +18,8 @@ df.columns = (
     }, inplace=True)
 )
 
-print(df.info())
+df['doa'] = pd.to_datetime(df['doa'])
+print(df['doa'].dt.year.sample(10))
+
+# print(df.info())
 # print(df.head())
