@@ -22,6 +22,8 @@ bitcoin2.columns = bitcoin.columns
 # bitcoin2['currency'] = bitcoin2['wire_amount'].str[0]
 
 bitcoin2.insert(loc=1, column='currency', value=bitcoin2['wire_amount'].str[0])
-bitcoin2['wire_amount'] = bitcoin2['wire_amount'].apply(lambda num: float(num.replace(',', '.')[1:]))
+# bitcoin2['wire_amount'] = bitcoin2['wire_amount'].apply(lambda num: float(num.replace(',', '.')[1:]))
+bitcoin2['wire_amount'] = bitcoin2['wire_amount'].str.replace(',', '.').str.slice(1, None).astype(float)
+
 
 print(bitcoin2.sample(10))
