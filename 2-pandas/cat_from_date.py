@@ -52,7 +52,17 @@ df['year_cat'] = (
 
 # Date Cycling
 # print(df['doa'].dt.day_of_week.head(10))
+
 days_lst = ['MONDAY', 'TUESDAY', 'WENSDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
 id2day = {id:day for id, day in enumerate(days_lst)}
 day2id = {day:id for id, day in enumerate(days_lst)}
-# print(df.head())
+cat_weeks = ['begweek', 'midweek', 'weekend']
+df['week'] = (
+    pd.cut(
+        df.doa.dt.day_of_week,
+        bins=[day2id['MONDAY']-1, day2id['WENSDAY'], day2id['SATURDAY'], day2id['SUNDAY']+1],
+        labels=[cat for cat in cat_weeks]
+    )
+)
+
+print(df.sample(15))
