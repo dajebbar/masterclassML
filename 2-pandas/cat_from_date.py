@@ -57,7 +57,7 @@ days_lst = ['MONDAY', 'TUESDAY', 'WENSDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'S
 id2day = {id:day for id, day in enumerate(days_lst)}
 day2id = {day:id for id, day in enumerate(days_lst)}
 cat_weeks = ['begweek', 'midweek', 'weekend']
-df['week'] = (
+df['week_period'] = (
     pd.cut(
         df.doa.dt.day_of_week,
         bins=[day2id['MONDAY']-1, day2id['WENSDAY'], day2id['SATURDAY'], day2id['SUNDAY']+1],
