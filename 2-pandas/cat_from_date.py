@@ -49,4 +49,10 @@ df['year_cat'] = (
 # print(df['doa'].dt.year.unique().size)
 # print(df['doa'].dt.year.sample(10))
 # print(df.info())
-print(df.head())
+
+# Date Cycling
+# print(df['doa'].dt.day_of_week.head(10))
+days_lst = ['MONDAY', 'TUESDAY', 'WENSDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
+id2day = {id:day for id, day in enumerate(days_lst)}
+day2id = {day:id for id, day in enumerate(days_lst)}
+# print(df.head())
