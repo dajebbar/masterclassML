@@ -67,8 +67,16 @@ df['week_period'] = (
 
 df.insert(loc=4, column='day_of_week', value=df.doa.dt.dayofweek.map(id2day))
 
-month_lst = ['JAN', 'FEB', 'MAR', 'APR', 'MAI', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+month_lst = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 id2mth = {id:mth for id, mth in enumerate(month_lst)}
 mth2id = {mth:id for id, mth in enumerate(month_lst)}
-
+df['months'] = df.doa.dt.month.map(id2mth)
+df['month_period'] = (
+    pd.cut(
+        df.doa.dt.month,
+        bins = [mth2id['JAN']-1, mth2id['JUN'], mth2id['SEP'], mth2id['DEC']+1],
+        labels=['semester2', 'holiday', 'semester1']
+    )
+)
 print(df.sample(15))
+
