@@ -53,6 +53,7 @@ df['year_cat'] = (
 # Date Cycling
 # print(df['doa'].dt.dayofweek.head(10))
 
+# Day of week cycle
 days_lst = ['MONDAY', 'TUESDAY', 'WENSDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
 id2day = {id:day for id, day in enumerate(days_lst)}
 day2id = {day:id for id, day in enumerate(days_lst)}
@@ -67,6 +68,7 @@ df['week_period'] = (
 
 df.insert(loc=4, column='day_of_week', value=df.doa.dt.dayofweek.map(id2day))
 
+# Months cycle
 month_lst = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 id2mth = {id:mth for id, mth in enumerate(month_lst)}
 mth2id = {mth:id for id, mth in enumerate(month_lst)}
@@ -78,5 +80,15 @@ df['month_period'] = (
         labels=['semester2', 'holiday', 'semester1']
     )
 )
+
+# Time cycle: night-morning ...
+df['time_period'] = (
+    pd.cut(
+        df.doa.dt.hour,
+        bins=[-1, 6, 13, 18, 22, 24],
+        labels=['Night', 'Morning', 'Afternoon', 'Evening', 'Night2']
+    )
+)
+df['time_period'] = df['time_period'].str.replace('2', '').astype('category')
 print(df.sample(15))
 
