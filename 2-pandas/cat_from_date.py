@@ -90,5 +90,24 @@ df['time_period'] = (
     )
 )
 df['time_period'] = df['time_period'].str.replace('2', '').astype('category')
+
+# Day and Time cycle
+cut = df.doa.dt.month * 100 + df.doa.dt.day
+labels = ['winter', 'sping', 'summer', 'fall', 'winter2']
+JAN_1 = 100
+MAR_20 = 320
+JUN_20 = 620
+SEP_20 = 920
+DEC_20 = 1220
+DEC_31 = 1231
+df['season'] = (
+    pd.cut(
+        cut,
+        bins=[JAN_1, MAR_20, JUN_20, SEP_20, DEC_20, DEC_31],
+        labels=labels
+    )
+)
+df['season'] = df['season'].str.replace('2', '').astype('category')
+
 print(df.sample(15))
 
