@@ -67,4 +67,8 @@ df['week_period'] = (
 
 df.insert(loc=4, column='day_of_week', value=df.doa.dt.dayofweek.map(id2day))
 
+month_lst = ['JAN', 'FEB', 'MAR', 'APR', 'MAI', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+id2mth = {id:mth for id, mth in enumerate(month_lst)}
+mth2id = {mth:id for id, mth in enumerate(month_lst)}
+
 print(df.sample(15))
