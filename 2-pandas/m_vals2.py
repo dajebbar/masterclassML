@@ -8,4 +8,6 @@ fp = 'https://bit.ly/missing-values'
 df = pd.read_csv(fp)
 # print(df.tail())
 
-print(df.isna().sum())
+# print(df.isna().sum())
+
+print(df.color.value_counts(dropna=False))
