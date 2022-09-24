@@ -7,5 +7,8 @@ df = pd.read_csv(fp)
 # print()
 # print(df.tail())
 
-df.amount = df.amount.str.replace('$', '').astype(float)
-print(df.head())
+df.amount = df.amount.apply(lambda x: float(x.replace('$', '')))
+
+# print(df.amount.head())
+
+print(df[df.duplicated()])
