@@ -9,5 +9,5 @@ prem = df.premium.value_counts(dropna=False)
 # print()
 # print(prem.head())
 df = pd.get_dummies(df)
-
+df.premium = (df.premium == 1).astype(int)
 print(df.head())
