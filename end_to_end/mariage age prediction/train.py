@@ -124,6 +124,12 @@ bento_model = bentoml.sklearn.save_model(
     model,
     custom_objects={
         "dictVectorizer": dv
+    },
+    signatures={
+        "predict":{
+            "batchable": True,
+            "batch_dim": 0,
+        }
     }
 )
 
