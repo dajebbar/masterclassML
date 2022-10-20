@@ -9,3 +9,4 @@ python:
     - sklearn
     - pandas
     - pydantic
+    - locust

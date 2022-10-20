@@ -21,10 +21,10 @@ model_runner = model_ref.to_runner()
 svc = bentoml.Service("marriage_regressor", runners=[model_runner])
 
 @svc.api(input=JSON(pydantic_model=AgeMarriageApplication), output=JSON())
-def classify(marriage_application):
+async def classify(marriage_application):
     application_data = marriage_application.dict()
     vector = dv.transform(application_data)
-    prediction = model_runner.predict.run(vector)
+    prediction = await model_runner.predict.async_run(vector)
     # print(prediction)
     result = prediction[0]
 
