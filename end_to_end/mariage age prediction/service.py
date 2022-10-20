@@ -1,14 +1,14 @@
 import bentoml
 from bentoml.io import JSON
-# from pydantic import BaseModel
+from pydantic import BaseModel
 
 
-# class AgeMarriageApplication(BaseModel):
-#     gender: str
-#     height: float
-#     religion: str
-#     caste: str
-#     mother_tongue: str
+class AgeMarriageApplication(BaseModel):
+    gender: str
+    height: float
+    religion: str
+    caste: str
+    mother_tongue: str
 
 model_ref = bentoml.sklearn.get("marriage_model:latest")
 
@@ -20,9 +20,9 @@ model_runner = model_ref.to_runner()
 # create a service
 svc = bentoml.Service("marriage_regressor", runners=[model_runner])
 
-@svc.api(input=JSON(), output=JSON())
-def classify(application_data):
-    # application_data = marriage_application.dict()
+@svc.api(input=JSON(pydantic_model=AgeMarriageApplication), output=JSON())
+def classify(marriage_application):
+    application_data = marriage_application.dict()
     vector = dv.transform(application_data)
     prediction = model_runner.predict.run(vector)
     # print(prediction)
