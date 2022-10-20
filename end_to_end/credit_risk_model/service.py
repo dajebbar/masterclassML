@@ -10,7 +10,7 @@ class UserProfile(BaseModel):
     country: str
     rating: float
 
-model_ref = bentoml.sklearn.get("mlzoomcamp_homework:qtzdz3slg6mwwdu5")
+model_ref = bentoml.sklearn.get("mlzoomcamp_homework:latest")
 
 # get access to the model
 model_runner = model_ref.to_runner()
