@@ -43,3 +43,6 @@ graphs/
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+
+### aws ###
+aws/
