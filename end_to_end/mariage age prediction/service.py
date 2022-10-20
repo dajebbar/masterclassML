@@ -10,7 +10,7 @@ class AgeMarriageApplication(BaseModel):
     caste: str
     mother_tongue: str
 
-model_ref = bentoml.sklearn.get("marriage_model:6o3yllsqo6g4oq4n")
+model_ref = bentoml.sklearn.get("marriage_model:latest")
 
 dv = model_ref.custom_objects["dictVectorizer"]
 
