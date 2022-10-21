@@ -20,8 +20,6 @@ svc = bentoml.Service("zoomcamp_risk_classifier", runners=[model_runner])
 
 @svc.api(input=NumpyNdarray(), output=JSON())
 async def classify(credit_application):
-    # application_data = credit_application.dict()
-    # vector = dv.transform(application_data)
     prediction = await model_runner.predict.async_run(credit_application)
     print(prediction)
     return {"Pred": prediction}
